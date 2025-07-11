@@ -42,7 +42,7 @@ State_Table State_Machine[6] =
 void GearDown(void) 
 {
     current_state = GEAR_DOWN;      //enum = GEAR_DOWN
-    printf("\nEnter the status of pilot's lever (0 for Raising, 1 for falling): ");
+    printf("\nEnter the status of pilot's lever :-\n(0 for Raising, 1 for falling) : ");
     int input;
     if (scanf("%d", &input) != 1)       // 0 
     {
@@ -56,7 +56,7 @@ void GearDown(void)
         current_state = CHECKING_BEFORE_TAKEOFF;        //enum = CHECKING_BEFORE_TAKEOFF
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nLanding Gear Hydraulic Control : %s", State_Machine[current_state].landing_gear_hydraulic_control);
+        printf("\nLanding Gear Hydraulic Control : %s\n", State_Machine[current_state].landing_gear_hydraulic_control);
     } 
     else 
     {
@@ -67,7 +67,7 @@ void GearDown(void)
 void CheckingBeforeTakeOFF(void) 
 {
     current_state = CHECKING_BEFORE_TAKEOFF;        //enum = CHECKING_BEFORE_TAKEOFF 
-    printf("\nEnter the status of pilot's lever (0 for Raising, 1 for falling), squat switch (0 for on, 1 for off) and hydraulic mechanism (0 for working, 1 for not working): ");
+    printf("\nEnter the status of pilot's lever :-\n(0 for Raising, 1 for falling), squat switch (0 for on, 1 for off) and hydraulic mechanism (0 for working, 1 for not working) : ");
     int input_pl, input_squat_switch, input_hm;
     if (scanf("%d %d %d", &input_pl, &input_squat_switch, &input_hm) != 3)      //0 0 0 
     {
@@ -88,7 +88,7 @@ void CheckingBeforeTakeOFF(void)
         current_state = RAISING_GEAR;       //enum = RAISING_GEAR
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nStatus of Direction valve : %s", State_Machine[current_state].direction_valve_status);
+        printf("\nStatus of Direction valve : %s\n", State_Machine[current_state].direction_valve_status);
     } 
     else if(pl == Raising && squat_switch == on && hm == not_working) 
     {
@@ -96,14 +96,14 @@ void CheckingBeforeTakeOFF(void)
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
         printf("\nStatus of Direction valve : %s", State_Machine[current_state].direction_valve_status);
-        printf("\nStatus of gas pressurised Spring System : %s", State_Machine[current_state].Gas_Pressurized_Spring_system_status[0]);
+        printf("\nStatus of gas pressurised Spring System : %s\n", State_Machine[current_state].Gas_Pressurized_Spring_system_status[0]);
     }
 }
 
 void RaisingGear(void) 
 {
     current_state = RAISING_GEAR;       //enum = RAISING_GEAR
-    printf("\nEnter the status of pilot's lever (0 for Raising, 1 for falling) and limit switch (0 for on, 1 for off): ");
+    printf("\nEnter the status of pilot's lever :-\n(0 for Raising, 1 for falling) and limit switch (0 for on, 1 for off) : ");
     int input_pl, input_limit_switch;
     if (scanf("%d %d", &input_pl, &input_limit_switch) != 2)        //0 1
     {
@@ -118,14 +118,14 @@ void RaisingGear(void)
         current_state = CHECK_BEFORE_LANDING;   //enum = CHECKING_BEFORE_LANDING 
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nLanding Gear Hydraulic Control : %s", State_Machine[current_state].landing_gear_hydraulic_control);
+        printf("\nLanding Gear Hydraulic Control : %s\n", State_Machine[current_state].landing_gear_hydraulic_control);
     } 
     else if(pl == Raising && limit_switch == off) 
     {
         current_state = GEAR_UP;        //enum = GEAR_UP
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nLanding Gear Hydraulic Control : %s", State_Machine[current_state].landing_gear_hydraulic_control);
+        printf("\nLanding Gear Hydraulic Control : %s\n", State_Machine[current_state].landing_gear_hydraulic_control);
     } 
     else 
     {
@@ -136,7 +136,7 @@ void RaisingGear(void)
 void GearUp(void) 
 {
     current_state = GEAR_UP;        //enum = GEAR_UP
-    printf("\nEnter the status of pilot's lever (0 for Raising, 1 for falling): ");
+    printf("\nEnter the status of pilot's lever :-\n(0 for Raising, 1 for falling) : ");
     int input;
     if (scanf("%d", &input) != 1)       //1
     {
@@ -150,7 +150,7 @@ void GearUp(void)
         current_state = CHECK_BEFORE_LANDING;       //enum = CHECK_BEFORE_LANDING 
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nLanding Gear Hydraulic Control : %s", State_Machine[current_state].landing_gear_hydraulic_control);
+        printf("\nLanding Gear Hydraulic Control : %s\n", State_Machine[current_state].landing_gear_hydraulic_control);
     } 
     else 
     {
@@ -161,7 +161,7 @@ void GearUp(void)
 void CheckBeforeLanding(void) 
 {
     current_state = CHECK_BEFORE_LANDING;       //enum = CHECKING_BEFORE_LANDING 
-    printf("\nEnter the status of pilot's lever (0 for Raising, 1 for falling) and hydraulic mechanism (0 for working, 1 for not working): ");
+    printf("\nEnter the status of pilot's lever :-\n(0 for Raising, 1 for falling) and hydraulic mechanism (0 for working, 1 for not working) : ");
     int input_pl, input_hm;
     if (scanf("%d %d", &input_pl, &input_hm) != 2)      //1 0 
     {
@@ -176,7 +176,7 @@ void CheckBeforeLanding(void)
         current_state = LOWERING_GEAR;      //enum = LOWERING_GEAR
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
-        printf("\nStatus of Direction valve : %s", State_Machine[current_state].direction_valve_status);
+        printf("\nStatus of Direction valve : %s\n", State_Machine[current_state].direction_valve_status);
     } 
     else if(pl == falling && hm == not_working) 
     {
@@ -184,7 +184,7 @@ void CheckBeforeLanding(void)
         printf("\nCurrent State : %s", State_Machine[current_state].current_state_indication);
         printf("\nLight is : %s", State_Machine[current_state].light);
         printf("\nStatus of Direction valve : %s", State_Machine[current_state].direction_valve_status);
-        printf("\nStatus of gas pressurised Spring System : %s", State_Machine[current_state].Gas_Pressurized_Spring_system_status[1]);
+        printf("\nStatus of gas pressurised Spring System : %s\n", State_Machine[current_state].Gas_Pressurized_Spring_system_status[1]);
     } 
     else if(pl == Raising) 
     {
@@ -195,7 +195,7 @@ void CheckBeforeLanding(void)
 void LoweringGear(void) 
 {
     current_state = LOWERING_GEAR;      //enum = LOWERING_GEAR
-    printf("Enter the status of pilot's lever (0 for Raising, 1 for falling) and limit switch (0 for on, 1 for off): ");
+    printf("Enter the status of pilot's lever :-\n(0 for Raising, 1 for falling) and limit switch (0 for on, 1 for off): ");
     int input_pl, input_limit_switch;
     if (scanf("%d %d", &input_pl, &input_limit_switch) != 2)        //1 0 
     {

@@ -14,6 +14,11 @@ Project 2 - Implement code for controlling the retraction and extension of Airpl
 
 int main() 
 {
+    printf("*************************************************************************\n");
+	printf("			Airplane Gears Project\n");
+	printf("                                                By,\n");
+	printf("						Nestin Gregorios Sunny\n");
+	printf("*************************************************************************\n");	
     Initiate_State_Machine();       //function call
     while (1) 
     {
